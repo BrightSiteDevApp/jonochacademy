@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Jonoch Academy</title>
+    <link rel="icon" type="image/png" href="../assets/img/logo.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        /* --- NEW: Page Pre-loader Styles --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--navy-blue, #000080);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease;
+        }
+        
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .preloader-logo {
+            width: 120px;
+            animation: pulse 1.5s infinite ease-in-out;
+             border-radius: 70px;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* --- Responsive Logo Styles --- */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--pink-primary, #E91E63);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .logo-img {
+                height: 35px; 
+            }
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* --- UPGRADED: Modern Hero Background & Parallax Overlay --- */
+        .hero {
+            /* Added 'fixed' for the Parallax 3D Scroll effect */
+            background: linear-gradient(rgba(0, 0, 128, 0.8), rgba(0, 0, 128, 0.8)), 
+                        url('../assets/img/nursery-students.png') center/cover no-repeat fixed;
+            padding: 150px 5%; /* Increased padding slightly for better parallax feel */
+            text-align: center;
+            color: white;
+        }
+
+        /* --- Icon Styles --- */
+        .contact-icon {
+            color: var(--pink-primary, #E91E63);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer-icon {
+            color: var(--pink-primary, #E91E63);
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-section {
+            padding: 80px 5%;
+            background-color: var(--white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-info-box h2, .contact-form-box h2 {
+            color: var(--navy-blue);
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--pink-primary);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .contact-details {
+            margin-top: 20px;
+        }
+
+        .contact-details p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-details strong {
+            color: var(--navy-blue);
+            width: 90px;
+            margin-right: 10px;
+        }
+
+        /* Style for the Contact Picture */
+        .contact-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease; 
+        }
+        
+        .contact-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Form Styling */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--pink-primary);
+            box-shadow: 0 0 5px rgba(233, 30, 99, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--pink-primary);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="preloader">
+        <img src="../assets/img/logo.png" alt="Loading Jonoch Academy..." class="preloader-logo">
+    </div>
+
+    <nav class="navbar">
+        <a href="../" class="logo">
+            <img src="../assets/img/logo.png" alt="Jonoch Academy Logo" class="logo-img">
+            Jonoch Academy
+        </a>
+        <ul class="nav-links">
+            <li><a href="../">Home</a></li>
+            <li><a href="../about-us/">About Us</a></li>
+            <li><a href="../academics/">Academics</a></li>
+            <li><a href="../admissions/">Admissions</a></li>
+            <li><a href="../gallery/">Gallery</a></li>
+            <li><a href="../contact/">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="menuBtn">☰</button>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Contact Us</h1>
+            <p class="subtitle">We would love to hear from you. Reach out to us for inquiries, admissions, or general information.</p>
+        </div>
+    </header>
+
+    <section class="contact-section">
+        <div class="contact-info-box">
+            <h2>Get In Touch</h2>
+            <p>Our administrative office is open Monday through Friday, 7:30 AM to 2:00 PM. Feel free to drop by or contact us through any of the channels below.</p>
+            
+            <div class="contact-details">
+                <p><i class="fa-solid fa-location-dot contact-icon"></i> <strong>Address:</strong> 4, Sabon Gari Off Juji Road, New Extension, Sabo, Kaduna</p>
+                <p><i class="fa-solid fa-phone contact-icon"></i> <strong>Phone:</strong> +234 806 597 1889</p>
+                <p><i class="fa-solid fa-envelope contact-icon"></i> <strong>Email:</strong> jonochacademy@gmail.com</p>
+            </div>
+            
+            <img src="../assets/img/student-3.png" alt="School Office" class="contact-img">
+        </div>
+
+        <div class="contact-form-box">
+            <h2>Send Us a Message</h2>
+            <form class="contact-form" action="#" method="POST" onsubmit="alert('Thank you! Your message has been sent.'); return false;">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="How can we help you?" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <h2>Ready to Join the Jonoch Academy Family?</h2>
+            <p>Admission is currently ongoing for the new academic term. Give your child the gift of a balanced, high-quality education today.</p>
+            
+            <div class="contact-info">
+                <p><i class="fa-solid fa-location-dot footer-icon"></i> <strong>Visit Us:</strong> 4, Sabon Gari Off Juji Road, New Extension, Sabo, Kaduna, Nigeria</p>
+                <p><i class="fa-solid fa-phone footer-icon"></i> <strong>Call Us:</strong> +234 806 597 1889</p>
+                <p><i class="fa-solid fa-envelope footer-icon"></i> <strong>Email Us:</strong> jonochacademy@gmail.com</p>
+            </div>
+
+            <button class="btn btn-secondary" onclick="alert('Admission form download will start shortly!')">Download Admission Form</button>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Jonoch Academy. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/script.js"></script>
+
+    <script>
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+                setTimeout(() => { preloader.style.display = 'none'; }, 600);
+            }, 1000); 
+        });
+    </script>
+</body>
+</html>

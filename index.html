@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonoch Academy | Running With A Vision</title>
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        /* --- NEW: Page Pre-loader Styles --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--navy-blue, #000080);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease;
+        }
+        
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .preloader-logo {
+            width: 120px;
+            animation: pulse 1.5s infinite ease-in-out;
+            border-radius: 70px;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* --- Responsive Logo Styles --- */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--pink-primary, #E91E63);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-img { height: 45px; width: auto; border-radius: 5px; }
+
+        @media (max-width: 768px) {
+            .logo-img { height: 35px; }
+            .logo { font-size: 1.2rem; }
+        }
+
+        /* --- UPGRADED: Modern Hero Background with Parallax Effect --- */
+        .hero {
+            /* The 'fixed' property here creates the Parallax 3D Scroll effect */
+            background: linear-gradient(rgba(0, 0, 128, 0.8), rgba(0, 0, 128, 0.8)), 
+                        url('assets/img/jnr-students.png') center/cover no-repeat fixed;
+            padding: 150px 5%;
+            text-align: center;
+            color: white;
+        }
+
+        /* --- NEW: Animated Counter Styles --- */
+        .stats-section {
+            background-color: var(--pink-light, #FCE4EC);
+            padding: 60px 5%;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--pink-primary, #E91E63);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            color: var(--navy-blue, #000080);
+            margin-bottom: 5px;
+        }
+        
+        .stat-text {
+            color: var(--pink-primary, #E91E63);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* --- Modern Hover Effects & Icon Styles --- */
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center; 
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--pink-primary, #E91E63);
+            margin-bottom: 15px;
+        }
+
+        .footer-icon {
+            color: var(--pink-primary, #E91E63);
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* CSS for the Testimonial Slider */
+        .slider-container { position: relative; max-width: 800px; margin: 0 auto; overflow: hidden; padding: 20px 0; }
+        .slider-wrapper { display: flex; transition: transform 0.5s ease-in-out; width: 100%; }
+        .slide { min-width: 100%; box-sizing: border-box; padding: 0 40px; }
+        .slider-btn {
+            position: absolute; top: 50%; transform: translateY(-50%); background-color: var(--navy-blue, #000080); 
+            color: white; border: none; cursor: pointer; width: 40px; height: 40px; border-radius: 50%;
+            font-size: 18px; display: flex; justify-content: center; align-items: center; transition: background-color 0.3s; z-index: 10;
+        }
+        .slider-btn:hover { background-color: var(--pink-primary, #E91E63); }
+        .prev-btn { left: 0; } .next-btn { right: 0; }
+        @media (max-width: 768px) { .slide { padding: 0 10px; } .slider-btn { display: none; } }
+    </style>
+</head>
+<body>
+
+    <div id="preloader">
+        <img src="assets/img/logo.png" alt="Loading Jonoch Academy..." class="preloader-logo">
+    </div>
+
+    <nav class="navbar">
+        <a href="/" class="logo">
+            <img src="assets/img/logo.png" alt="Jonoch Academy Logo" class="logo-img">
+            Jonoch Academy
+        </a>
+        
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="about-us/">About Us</a></li>
+            <li><a href="academics/">Academics</a></li>
+            <li><a href="admissions/">Admissions</a></li>
+            <li><a href="gallery/">Gallery</a></li>
+            <li><a href="contact/">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="menuBtn">☰</button>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Jonoch Academy</h1>
+            <p>Nurturing Minds, Building Future Leaders.</p>
+            <p class="subtitle">At Jonoch Academy, we partner with parents to provide qualitative education in a secure, loving, and highly disciplined environment. From Nursery to Junior Secondary School (JSS 3), we are dedicated to bringing out the absolute best in your child.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="alert('Enrollment portal opening soon!')">Enroll Your Child Today</button>
+                <a href="contact/" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="why-us">
+        <h2>Why Choose Jonoch Academy?</h2>
+        <p class="section-desc">Choosing the right school for your child is one of the most important decisions you will make. Here is why we are the right choice for your family:</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fa-solid fa-book-open feature-icon"></i>
+                <h3>Strong Academic Foundation</h3>
+                <p>Our curriculum is structured to help students excel in standard examinations (including BECE) and prepare them for future academic success.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-users feature-icon"></i>
+                <h3>Small Class Sizes</h3>
+                <p>We keep classes small to ensure our dedicated teachers give personalized attention to every student, ensuring no child is left behind.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-scale-balanced feature-icon"></i>
+                <h3>Strict Moral Discipline</h3>
+                <p>We instill strong moral values, respect, and discipline, raising our students to be responsible members of society.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-shield-halved feature-icon"></i>
+                <h3>Safe Environment</h3>
+                <p>Your child's safety is our priority. Our premises are well-secured, clean, and designed to make learning comfortable and enjoyable.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid" id="stats">
+            <div class="stat-card">
+                <div class="stat-number" data-target="5">0</div>
+                <div class="stat-text">Dedicated Teachers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="90">0</div>
+                <div class="stat-text">Enrolled Students</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-text">BECE Pass Rate (%)</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sections" class="school-sections">
+        <h2>Our School Sections</h2>
+        <div class="sections-grid">
+            <div class="section-card">
+                <img src="assets/img/nursery-students.png" alt="Nursery Students Learning" class="section-img">
+                <h3>Nursery School</h3>
+                <p>A colorful, engaging, and play-based environment where children develop basic literacy, numeracy, and social skills under patient, experienced educators.</p>
+            </div>
+            
+            <div class="section-card">
+                <img src="assets/img/primary-students.png" alt="Primary School Students" class="section-img">
+                <h3>Primary School</h3>
+                <p>Focusing on building independent thinkers with a robust blend of subjects that encourage reading, writing, and mathematical problem-solving.</p>
+            </div>
+            
+            <div class="section-card">
+                <img src="assets/img/jnr-sec-students.png" alt="JSS Students in Class" class="section-img">
+                <h3>Junior Secondary (JSS 1 – 3)</h3>
+                <p>Bridging the gap between foundational learning and advanced studies, equipping students thoroughly for their Basic Education Certificate Examination (BECE).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial">
+        <h2>Hear From Our Parents</h2>
+        <div class="slider-container">
+            <div class="slider-wrapper" id="testimonialSlider">
+                <div class="slide">
+                    <blockquote class="quote">
+                        "Enrolling my children at Jonoch Academy is the best decision I have made. The teachers actually know my child's strengths and weaknesses, and the moral standard of the school is highly commendable."
+                    </blockquote>
+                    <p class="author">— Mrs. A., Parent</p>
+                </div>
+                <div class="slide">
+                    <blockquote class="quote">
+                        "I love the small class sizes. My son gets the attention he needs to thrive. His math and reading scores have improved significantly since he joined the primary section."
+                    </blockquote>
+                    <p class="author">— Mr. Ibrahim, Parent</p>
+                </div>
+                <div class="slide">
+                    <blockquote class="quote">
+                        "The school's focus on discipline and character is exactly what we were looking for. It is a safe and loving environment, and we have absolute peace of mind dropping our daughter off."
+                    </blockquote>
+                    <p class="author">— Mrs. Chukwu, Parent</p>
+                </div>
+            </div>
+            
+            <button class="slider-btn prev-btn" id="prevBtn">&#10094;</button>
+            <button class="slider-btn next-btn" id="nextBtn">&#10095;</button>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <h2>Ready to Join the Jonoch Academy Family?</h2>
+            <p>Admission is currently ongoing for the new academic term. Give your child the gift of a balanced, high-quality education today.</p>
+            
+            <div class="contact-info">
+                <p><i class="fa-solid fa-location-dot footer-icon"></i> <strong>Visit Us:</strong> 4, Sabon Gari Off Juji Road, New Extension, Sabo, Kaduna, Nigeria</p>
+                <p><i class="fa-solid fa-phone footer-icon"></i> <strong>Call Us:</strong> +234 806 597 1889</p>
+                <p><i class="fa-solid fa-envelope footer-icon"></i> <strong>Email Us:</strong> jonochacademy@gmail.com</p>
+            </div>
+
+            <button class="btn btn-secondary" onclick="downloadForm()">Download Admission Form</button>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Jonoch Academy. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/script.js"></script>
+    
+    <script>
+        // --- NEW: Preloader Logic ---
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            // Give it 1 second so parents see the cool pulsing logo before it fades out
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+                // Remove it from the background after fading
+                setTimeout(() => { preloader.style.display = 'none'; }, 600);
+            }, 1000); 
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // --- NEW: Animated Counter Logic ---
+            const counters = document.querySelectorAll('.stat-number');
+            const statsSection = document.getElementById('stats');
+            let hasCounted = false;
+
+            const animateCounters = () => {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 2000; // Total time of animation (2 seconds)
+                    const increment = target / (duration / 16); 
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.innerText = Math.ceil(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            // Add a '+' or '%' depending on the stat
+                            counter.innerText = target + (target === 100 ? '%' : '+');
+                        }
+                    };
+                    updateCounter();
+                });
+            };
+
+            // This watches the screen and starts the counter ONLY when the parent scrolls to it
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !hasCounted) {
+                    animateCounters();
+                    hasCounted = true;
+                }
+            }, { threshold: 0.5 });
+
+            if(statsSection) {
+                observer.observe(statsSection);
+            }
+
+            // --- Existing Slider Logic ---
+            const slider = document.getElementById('testimonialSlider');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentIndex = 0;
+            let intervalId;
+
+            function showSlide(index) {
+                if (index >= slides.length) { currentIndex = 0; } 
+                else if (index < 0) { currentIndex = slides.length - 1; } 
+                else { currentIndex = index; }
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            function nextSlide() { showSlide(currentIndex + 1); }
+            function prevSlide() { showSlide(currentIndex - 1); }
+
+            function startAutoSlide() { intervalId = setInterval(nextSlide, 3000); }
+            function stopAutoSlide() { clearInterval(intervalId); }
+
+            nextBtn.addEventListener('click', () => { nextSlide(); stopAutoSlide(); startAutoSlide(); });
+            prevBtn.addEventListener('click', () => { prevSlide(); stopAutoSlide(); startAutoSlide(); });
+
+            let startX = 0;
+            slider.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; stopAutoSlide(); });
+            slider.addEventListener('touchend', (e) => {
+                let endX = e.changedTouches[0].clientX;
+                if (startX > endX + 50) { nextSlide(); } 
+                else if (startX < endX - 50) { prevSlide(); }
+                startAutoSlide();
+            });
+
+            startAutoSlide();
+        });
+    </script>
+</body>
+</html>

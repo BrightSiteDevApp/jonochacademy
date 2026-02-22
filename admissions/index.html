@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions | Jonoch Academy</title>
+    <link rel="icon" type="image/png" href="../assets/img/logo.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        /* --- NEW: Page Pre-loader Styles --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--navy-blue, #000080);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease;
+        }
+        
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .preloader-logo {
+            width: 120px;
+            animation: pulse 1.5s infinite ease-in-out;
+             border-radius: 70px;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* --- Responsive Logo Styles --- */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--pink-primary, #E91E63);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .logo-img {
+                height: 35px; 
+            }
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* --- UPGRADED: Modern Hero Background & Parallax Overlay --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 128, 0.8), rgba(0, 0, 128, 0.8)), 
+                        url('../assets/img/student-3.png') center/cover no-repeat fixed;
+            padding: 150px 5%; /* Increased padding slightly for better parallax feel */
+            text-align: center;
+            color: white;
+        }
+
+        /* --- Footer Icon Styles --- */
+        .footer-icon {
+            color: var(--pink-primary, #E91E63);
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Specific styles for the Admissions page */
+        .admissions-section {
+            padding: 60px 5%;
+            background-color: var(--white);
+        }
+
+        .admissions-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .admission-banner {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease; 
+        }
+
+        .admission-banner:hover {
+            transform: scale(1.02);
+        }
+
+        .admissions-content h2 {
+            color: var(--navy-blue);
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--pink-primary);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* Steps Layout */
+        .steps-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .step-card {
+            background-color: var(--pink-light);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid var(--pink-primary);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .step-text h3 {
+            color: var(--navy-blue);
+            margin-bottom: 5px;
+        }
+
+        /* Lists layout */
+        .info-box {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            border: 1px solid #eee;
+        }
+
+        .info-box ul {
+            list-style-type: none;
+            margin-top: 15px;
+        }
+
+        .info-box ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        .info-box ul li::before {
+            content: "✓";
+            color: var(--pink-primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .exam-notice {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .exam-notice h3 {
+            color: var(--pink-primary);
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="preloader">
+        <img src="../assets/img/logo.png" alt="Loading Jonoch Academy..." class="preloader-logo">
+    </div>
+
+    <nav class="navbar">
+        <a href="../" class="logo">
+            <img src="../assets/img/logo.png" alt="Jonoch Academy Logo" class="logo-img">
+            Jonoch Academy
+        </a>
+        <ul class="nav-links">
+            <li><a href="../">Home</a></li>
+            <li><a href="../about-us/">About Us</a></li>
+            <li><a href="../academics/">Academics</a></li>
+            <li><a href="../admissions/">Admissions</a></li>
+            <li><a href="../gallery/">Gallery</a></li>
+            <li><a href="../contact/">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="menuBtn">☰</button>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Admissions</h1>
+            <p class="subtitle">Join the Jonoch Academy Family. Here is everything you need to know about enrolling your child for the new academic term.</p>
+        </div>
+    </header>
+
+    <section class="admissions-section">
+        <div class="admissions-content">
+            
+            <img src="../assets/img/students.png" alt="Admissions Banner" class="admission-banner">
+
+            <h2>How to Apply in 4 Easy Steps</h2>
+            <p>We have made our admission process as simple and transparent as possible for parents.</p>
+            
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-text">
+                        <h3>Obtain the Admission Form</h3>
+                        <p>Visit the school premises to purchase the admission form, or download it directly from our website and print it out.</p>
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-text">
+                        <h3>Submit the Completed Form</h3>
+                        <p>Fill out the form with accurate details and return it to the school administrative office along with the required documents listed below.</p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-text">
+                        <h3>Attend the Entrance Examination</h3>
+                        <p>Your child will be scheduled for a brief entrance examination or oral interview (depending on their class level) to help us place them appropriately.</p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-text">
+                        <h3>Receive Admission Letter & Pay Fees</h3>
+                        <p>Successful candidates will be issued an admission letter. Simply pay the school fees into the designated bank account to secure your child's space!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h2>Required Documents</h2>
+                <p>Please bring photocopies of the following documents when submitting your child's form:</p>
+                <ul>
+                    <li>Two (2) recent passport-sized photographs of the child.</li>
+                    <li>A photocopy of the child's Birth Certificate.</li>
+                    <li>Last academic term's report card (for pupils transferring from another school).</li>
+                    <li>Immunization record (for Nursery pupils only).</li>
+                </ul>
+            </div>
+
+            <div class="exam-notice">
+                <h3>About the Entrance Examination</h3>
+                <p><strong>Nursery Applicants:</strong> No written exams. We simply conduct a friendly oral interaction and play observation to assess their readiness.</p>
+                <p><strong>Primary & JSS Applicants:</strong> Candidates will be tested on basic <strong>Mathematics, English Language, and General Knowledge</strong> based on their previous class level. This simply helps us know their academic strengths and where they need the most help.</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn btn-primary" onclick="alert('Downloading Admission Form...')">Download Admission Form Now</button>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <h2>Have Questions About Admissions?</h2>
+            <p>Our admin team is always happy to assist you with the process.</p>
+            
+            <div class="contact-info">
+                <p><i class="fa-solid fa-location-dot footer-icon"></i> <strong>Visit Us:</strong> 123 School Road, Ungwan Galadima, Kaduna</p>
+                <p><i class="fa-solid fa-phone footer-icon"></i> <strong>Call Us:</strong> +234 800 000 0000</p>
+                <p><i class="fa-solid fa-envelope footer-icon"></i> <strong>Email Us:</strong> admissions@jonochacademy.com.ng</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Jonoch Academy. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/script.js"></script>
+
+    <script>
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+                setTimeout(() => { preloader.style.display = 'none'; }, 600);
+            }, 1000); 
+        });
+    </script>
+</body>
+</html>

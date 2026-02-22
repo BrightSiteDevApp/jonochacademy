@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics | Jonoch Academy</title>
+    <link rel="icon" type="image/png" href="../assets/img/logo.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        /* --- NEW: Page Pre-loader Styles --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--navy-blue, #000080);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease;
+        }
+        
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .preloader-logo {
+            width: 120px;
+            animation: pulse 1.5s infinite ease-in-out;
+             border-radius: 70px;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* --- Responsive Logo Styles --- */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--pink-primary, #E91E63);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .logo-img {
+                height: 35px; 
+            }
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* --- UPGRADED: Modern Hero Background & Parallax Overlay --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 128, 0.8), rgba(0, 0, 128, 0.8)), 
+                        url('../assets/img/students.png') center/cover no-repeat fixed;
+            padding: 150px 5%; /* Increased padding slightly for better parallax feel */
+            text-align: center;
+            color: white;
+        }
+
+        /* --- Footer Icon Styles --- */
+        .footer-icon {
+            color: var(--pink-primary, #E91E63);
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Specific styles for the Academics page */
+        .academic-level {
+            padding: 60px 5%;
+            background-color: var(--white);
+        }
+        
+        .academic-level:nth-child(even) {
+            background-color: var(--pink-light);
+        }
+
+        .level-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .level-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .level-content {
+            width: 100%;
+        }
+
+        .level-content h2 {
+            color: var(--navy-blue);
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--pink-primary);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .level-content h3 {
+            color: var(--pink-primary);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .subject-list {
+            list-style-type: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .subject-list li {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            text-align: center;
+            transition: transform 0.3s ease; 
+        }
+        
+        .subject-list li:hover {
+            transform: scale(1.05);
+            background-color: var(--pink-primary);
+        }
+
+        /* Hover effect added to academic images */
+        .level-img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .level-img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .exam-prep {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .exam-prep h2 {
+            color: var(--pink-primary);
+            margin-bottom: 20px;
+        }
+
+        .exam-prep p {
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="preloader">
+        <img src="../assets/img/logo.png" alt="Loading Jonoch Academy..." class="preloader-logo">
+    </div>
+
+    <nav class="navbar">
+        <a href="../" class="logo">
+            <img src="../assets/img/logo.png" alt="Jonoch Academy" class="logo-img">
+            Jonoch Academy
+        </a>
+        <ul class="nav-links">
+            <li><a href="../">Home</a></li>
+            <li><a href="../about-us/">About Us</a></li>
+            <li><a href="../admissions/">Admission</a></li>
+             <li><a href="../gallery/">Gallery</a></li>
+            <li><a href="../contact/">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="menuBtn">☰</button>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Academic Excellence</h1>
+            <p class="subtitle">A comprehensive Nigerian curriculum designed to build independent thinkers, confident learners, and future high-achievers.</p>
+        </div>
+    </header>
+
+    <section class="academic-level">
+        <div class="level-wrapper">
+            <div class="level-content">
+                <h2>Nursery School (Early Years)</h2>
+                <p>The early years are the most critical stage of a child’s development. In our Nursery section, we focus on learning through play, exploration, and structured activities. Our goal is to build your child's confidence, motor skills, and love for school in a warm and colorful environment.</p>
+                
+                <h3>What They Learn:</h3>
+                <ul class="subject-list">
+                    <li>Phonics & Letter Recognition</li>
+                    <li>Basic Numeracy (Number Work)</li>
+                    <li>Handwriting Readiness</li>
+                    <li>Rhymes & Expressive Arts</li>
+                    <li>Social Habits & Etiquette</li>
+                </ul>
+            </div>
+            <img src="../assets/img/nursery.png" alt="Nursery Pupils" class="level-img">
+        </div>
+    </section>
+
+    <section class="academic-level">
+        <div class="level-wrapper">
+            <img src="../assets/img/primary.png" alt="Primary Pupils" class="level-img">
+            <div class="level-content">
+                <h2>Primary School (Basic 1 – 6)</h2>
+                <p>Our Primary curriculum is designed to give pupils a solid foundation in literacy, numeracy, and general knowledge. We challenge our students to think critically and ask questions. By Primary 5 and 6, pupils are rigorously prepared for their National Common Entrance Examinations to ensure a seamless transition into top secondary schools.</p>
+                
+                <h3>Core Subjects Include:</h3>
+                <ul class="subject-list">
+                    <li>Mathematics</li>
+                    <li>English Language & Diction</li>
+                    <li>Basic Science & Technology</li>
+                    <li>National Values (Civic Ed.)</li>
+                    <li>Quantitative & Verbal Reasoning</li>
+                    <li>Computer Studies (ICT)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="academic-level">
+        <div class="level-wrapper">
+            <div class="level-content">
+                <h2>Junior Secondary School (JSS 1 – 3)</h2>
+                <p>The JSS level bridges the gap between basic education and specialized senior secondary subjects. Here, students are introduced to a broader range of subjects that test their analytical skills, creativity, and problem-solving abilities. This phase culminates in the Basic Education Certificate Examination (BECE) / Junior WAEC.</p>
+                
+                <h3>Core Areas of Study:</h3>
+                <ul class="subject-list">
+                    <li>Mathematics & English</li>
+                    <li>Basic Science & Tech (BST)</li>
+                    <li>Pre-Vocational Studies</li>
+                    <li>Business Studies</li>
+                    <li>National Values Education</li>
+                    <li>Cultural & Creative Arts</li>
+                </ul>
+            </div>
+            <img src="../assets/img/jnr-sec.png" alt="JSS Students" class="level-img">
+        </div>
+    </section>
+
+    <section class="exam-prep">
+        <h2>Preparing for Future WAEC & NECO Success</h2>
+        <p>While Senior Secondary Certificate Examinations (SSCE) like WAEC and NECO are written in SS3, the preparation starts here at Jonoch Academy. A house is only as strong as its foundation.</p>
+        <p>By enforcing a strict culture of independent studying, conducting continuous assessments, and discouraging all forms of examination malpractice, we equip our JSS3 graduates with the exact study habits, analytical skills, and academic confidence they need to comfortably pass their future WAEC, NECO, and JAMB examinations in flying colors.</p>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <h2>Secure Your Child's Future Today</h2>
+            <p>Give your child the academic advantage they deserve.</p>
+            
+            <div class="contact-info">
+                <p><i class="fa-solid fa-location-dot footer-icon"></i> <strong>Visit Us:</strong> 4, Sabon Gari Off Juji Road, New Extension, Sabo, Kaduna, Nigeria</p>
+                <p><i class="fa-solid fa-phone footer-icon"></i> <strong>Call Us:</strong> +234 800 000 0000</p>
+                <p><i class="fa-solid fa-envelope footer-icon"></i> <strong>Email Us:</strong> info@jonochacademy.com.ng</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Jonoch Academy. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/script.js"></script>
+
+    <script>
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+                setTimeout(() => { preloader.style.display = 'none'; }, 600);
+            }, 1000); 
+        });
+    </script>
+</body>
+</html>

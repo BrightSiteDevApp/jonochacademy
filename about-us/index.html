@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Jonoch Academy</title>
+    <link rel="icon" type="image/png" href="../assets/img/logo.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        /* --- NEW: Page Pre-loader Styles --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--navy-blue, #000080);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease;
+        }
+        
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .preloader-logo {
+            width: 120px;
+            animation: pulse 1.5s infinite ease-in-out;
+             border-radius: 70px;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* --- Responsive Logo Styles --- */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--pink-primary, #E91E63);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .logo-img { height: 35px; }
+            .logo { font-size: 1.2rem; }
+        }
+
+        /* --- UPGRADED: Modern Hero Background with Parallax Effect --- */
+        .hero {
+            /* The 'fixed' property here creates the Parallax 3D Scroll effect */
+            background: linear-gradient(rgba(0, 0, 128, 0.8), rgba(0, 0, 128, 0.8)), 
+                        url('../assets/img/student-3.png') center/cover no-repeat fixed;
+            padding: 150px 5%; /* Increased padding slightly for better parallax feel */
+            text-align: center;
+            color: white;
+        }
+
+        /* --- Modern Hover Effects & Icon Styles --- */
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center; 
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--pink-primary, #E91E63);
+            margin-bottom: 15px;
+        }
+
+        .footer-icon {
+            color: var(--pink-primary, #E91E63);
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* --- Page Specific Styles --- */
+        .head-teacher-section {
+            background-color: var(--white);
+            padding: 60px 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .head-teacher-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--pink-primary);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+        }
+        .message-box {
+            max-width: 800px;
+            background-color: var(--pink-light);
+            padding: 40px;
+            border-radius: 8px;
+            border-left: 5px solid var(--pink-primary);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease; 
+        }
+        .message-box:hover {
+            transform: translateY(-5px);
+        }
+        .signature {
+            margin-top: 20px;
+            font-weight: bold;
+            color: var(--navy-blue);
+            font-size: 1.1rem;
+        }
+        .about-banner-img {
+            width: 100%;
+            height: 350px; 
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+        }
+    </style>
+</head>
+<body>
+
+    <div id="preloader">
+        <img src="../assets/img/logo.png" alt="Loading Jonoch Academy..." class="preloader-logo">
+    </div>
+
+    <nav class="navbar">
+        <a href="../" class="logo">
+            <img src="../assets/img/logo.png" alt="Jonoch Academy Logo" class="logo-img">
+            Jonoch Academy
+        </a>
+        
+        <ul class="nav-links">
+            <li><a href="../">Home</a></li>
+            <li><a href="../academics/">Academics</a></li>
+            <li><a href="../admissions/">Admissions</a></li>
+            <li><a href="../gallery/">Gallery</a></li>
+            <li><a href="../contact/">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="menuBtn">☰</button>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>About Jonoch Academy</h1>
+            <p class="subtitle">A community of learners, guided by love, discipline, and excellence.</p>
+        </div>
+    </header>
+
+    <section class="why-us">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <img src="../assets/img/jnr-students.png" alt="School Banner" class="about-banner-img">
+        </div>
+        
+        <h2>Our Core Purpose</h2>
+        <p class="section-desc">At Jonoch Academy, everything we do is driven by a deep commitment to seeing your child succeed, not just in their academics, but in life.</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fa-solid fa-eye feature-icon"></i>
+                <h3>Our Vision</h3>
+                <p>To raise a generation of intellectually sound, highly disciplined, and morally upright leaders who will confidently shape the future and make a positive impact in society.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-bullseye feature-icon"></i>
+                <h3>Our Mission</h3>
+                <p>To provide a safe, engaging, and standard educational environment that fosters academic excellence, strong character development, and a lifelong love for learning in every child.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="head-teacher-section">
+        <h2>A Welcome Message from Our Head Teacher</h2>
+        
+        <img src="../assets/img/owner.png" alt="Head Teacher" class="head-teacher-img">
+        
+        <div class="message-box">
+            <p><strong>Dear Parents and Guardians,</strong></p>
+            <br>
+            <p>Welcome to Jonoch Academy! It is a great honor to partner with you in the beautiful journey of raising your children...</p>
+            <br>
+            <p>Thank you for trusting us with your most precious gifts. My door is always open to you, and I look forward to working together to achieve greatness for our children.</p>
+            <p class="signature">Warm regards,<br>Head Teacher, Jonoch Academy</p>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <h2>Let's Start This Journey Together</h2>
+            <div class="contact-info">
+                <p><i class="fa-solid fa-location-dot footer-icon"></i> <strong>Visit Us:</strong> 4, Sabon Gari Off Juji Road, New Extension, Sabo, Kaduna, Nigeria</p>
+                <p><i class="fa-solid fa-phone footer-icon"></i> <strong>Call Us:</strong> +234 806 597 1889</p>
+                <p><i class="fa-solid fa-envelope footer-icon"></i> <strong>Email Us:</strong> jonochacademy@gmail.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Jonoch Academy. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/script.js"></script>
+    
+    <script>
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            // Give it 1 second so parents see the cool pulsing logo before it fades out
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+                // Remove it from the background after fading
+                setTimeout(() => { preloader.style.display = 'none'; }, 600);
+            }, 1000); 
+        });
+    </script>
+</body>
+</html>
