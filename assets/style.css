@@ -1,0 +1,396 @@
+/* General Reset & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --navy-blue: #000080; /* Updated to your exact Navy Blue */
+    --navy-light: #000099; /* Slightly lighter for hover effects */
+    --pink-primary: #E91E63;
+    --pink-light: #FCE4EC;
+    --white: #FFFFFF;
+    --text-dark: #333333;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--white);
+    font-family: 'Roboto', sans-serif;
+}
+/* Apply Poppins to all Headings */
+h1, h2, h3, h4, h5, h6, .logo {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--navy-blue);
+    padding: 1rem 5%;
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--pink-primary);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--pink-primary);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--pink-primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: #D81B60;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--pink-primary);
+    color: var(--pink-primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--pink-primary);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background-color: var(--navy-blue);
+    color: var(--white);
+    margin-top: 15px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--navy-light);
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--navy-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 100px 5%;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--white);
+}
+
+.hero .subtitle {
+    max-width: 800px;
+    margin: 20px auto;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+}
+
+.hero-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Why Us Section */
+.why-us {
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.why-us h2 {
+    color: var(--navy-blue);
+    margin-bottom: 15px;
+}
+
+.section-desc {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.feature-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-top: 4px solid var(--pink-primary);
+}
+
+.feature-card h3 {
+    color: var(--navy-blue);
+    margin-bottom: 15px;
+}
+
+/* School Sections (Pink Background) */
+.school-sections {
+    background-color: var(--pink-light);
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.section-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.school-sections h2 {
+    color: var(--navy-blue);
+    margin-bottom: 40px;
+}
+
+.sections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.section-card {
+    background-color: var(--white);
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.section-card h3 {
+    color: var(--pink-primary);
+    margin-bottom: 15px;
+}
+
+/* Testimonial Section */
+.testimonial {
+    padding: 60px 5%;
+    text-align: center;
+    background-color: var(--white);
+}
+
+.testimonial h2 {
+    color: var(--navy-blue);
+    margin-bottom: 30px;
+}
+
+.quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #555;
+    line-height: 1.8;
+}
+
+.author {
+    margin-top: 20px;
+    font-weight: bold;
+    color: var(--pink-primary);
+}
+
+/* Footer & Contact */
+.footer {
+    background-color: var(--pink-primary);
+    color: var(--white);
+    text-align: center;
+    padding: 60px 5% 20px;
+}
+
+.footer-content h2 {
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    margin: 30px 0;
+    font-size: 1.1rem;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.copyright {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    font-size: 0.9rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--navy-light);
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+}
+
+/* --- Scroll Reveal Animation --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px); /* Pushes the element down slightly */
+    transition: all 0.8s ease-out; /* Controls how smooth and slow it appears */
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0); /* Brings it back to its normal position */
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS (SMARTPHONES & TABLETS)
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* 1. Make the big Hero text smaller so it fits on screens */
+    .hero {
+        padding: 100px 5% 60px 5%;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+    
+    .hero .subtitle {
+        font-size: 1rem;
+    }
+
+    /* 2. Hide the normal menu links and prepare them for the mobile dropdown */
+    .nav-links {
+        display: none; /* Hides the links initially */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Pushes it just below the navbar */
+        left: 0;
+        width: 100%;
+        background-color: var(--navy-blue, #000080);
+        text-align: center;
+        padding: 20px 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    }
+
+    /* This class will be added by JavaScript when the hamburger is clicked */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    /* Show the hamburger menu button */
+    .mobile-menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--pink-primary, #E91E63);
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    /* 3. Stack Footer content on mobile */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .contact-info {
+        align-items: center;
+    }
+
+    /* 4. Make sure buttons stack if they are side-by-side */
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
+
+/* Ensure all images automatically scale down and never break the screen width */
+img {
+    max-width: 100%;
+    height: auto;
+}
